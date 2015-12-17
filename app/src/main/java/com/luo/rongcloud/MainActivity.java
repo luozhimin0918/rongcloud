@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
                  * @param targetId         客服 Id。
                  * @param title            客服标题。
                  */
-//                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "KEFU145033288579386", "客服");
+                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "KEFU145033288579386", "客服");
 
 
 
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
                  * @param targetId         公众号 Id。
                  * @param title            客服标题。
                  */
-                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "luozhimin", "罗志敏");
+//                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "luozhimin", "罗志敏");
 
             }
         });
