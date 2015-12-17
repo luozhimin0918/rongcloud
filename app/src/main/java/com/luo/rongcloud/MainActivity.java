@@ -21,6 +21,7 @@ import com.luo.rongcloud.utill.App;
 
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.Conversation;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -66,13 +67,36 @@ public class MainActivity extends AppCompatActivity
                  * targetUserId - 要与之聊天的用户 Id。
                  * title - 聊天的标题，如果传入空值，则默认显示与之聊天的用户名称。
                  */
-                if (RongIM.getInstance() != null) {
+               /* if (RongIM.getInstance() != null) {
                     RongIM.getInstance().startPrivateChat(MainActivity.this, "22222222", "hello");
-                }
+                }*/
+                /**
+                 * 启动客服聊天界面。
+                 *
+                 * @param context          应用上下文。
+                 * @param conversationType 开启会话类型。
+                 * @param targetId         客服 Id。
+                 * @param title            客服标题。
+                 */
+                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "KEFU145033288579386", "客服");
+
+
+
+
+                /**
+                 * 启动客服聊天界面。
+                 *
+                 * @param context          应用上下文。
+                 * @param conversationType 会话类型，此处应该传 Conversation.ConversationType.APP_PUBLIC_SERVICE。
+                 * @param targetId         公众号 Id。
+                 * @param title            客服标题。
+                 */
+//                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "luozhimin@vnroth0kryaoo", "罗志敏");
+
             }
         });
         //luo
-        connect(Token);
+       connect(Token);
     }
 
 
@@ -82,7 +106,7 @@ public class MainActivity extends AppCompatActivity
      *
      * @param token
      */
-    String Token = "1UUYEWafVVxRLJh3FQIPZrAdUWU/UP60b3vQW1NesNJAdWdGu1v1DQiaA76lgTePa9Kndj3goX1FsHEILpqhWedKOmGO8aW9"; //test11111111
+    String Token = "ydg2vF5cOsXnBndkomA5pbAdUWU/UP60b3vQW1NesNJAdWdGu1v1DY2yz3Er1LbwMAt1qgytwiooeJozhSh2vw=="; //test11111111
 //    String Token = "v0PjdIA3EKRyApOF2mqccbAdUWU/UP60b3vQW1NesNJAdWdGu1v1DSSvW9wqc6AoD0lsot/llkW+D+wrsitRvedKOmGO8aW9"; //test22222222
     private void connect(String token) {
 
