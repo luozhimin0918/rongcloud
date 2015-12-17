@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
                  * @param targetId         客服 Id。
                  * @param title            客服标题。
                  */
-                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "KEFU145033288579386", "客服");
+//                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "KEFU145033288579386", "客服");
 
 
 
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
                  * @param targetId         公众号 Id。
                  * @param title            客服标题。
                  */
-//                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "luozhimin@vnroth0kryaoo", "罗志敏");
+                RongIM.getInstance().startConversation(MainActivity.this, Conversation.ConversationType.APP_PUBLIC_SERVICE, "luozhimin", "罗志敏");
 
             }
         });
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity
      *
      * @param token
      */
-    String Token = "ydg2vF5cOsXnBndkomA5pbAdUWU/UP60b3vQW1NesNJAdWdGu1v1DY2yz3Er1LbwMAt1qgytwiooeJozhSh2vw=="; //test11111111
+    String Token = "iPO5/hEIhjHImF2BMve/pLAdUWU/UP60b3vQW1NesNJAdWdGu1v1Dck9ab3GJfJardNd6rWcr9LnSjphjvGlvQ=="; //test dd
 //    String Token = "v0PjdIA3EKRyApOF2mqccbAdUWU/UP60b3vQW1NesNJAdWdGu1v1DSSvW9wqc6AoD0lsot/llkW+D+wrsitRvedKOmGO8aW9"; //test22222222
     private void connect(String token) {
 
