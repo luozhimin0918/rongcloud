@@ -1,8 +1,10 @@
 package com.luo.rongcloud;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,10 +14,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    TextView RongCloudToIM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +48,63 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
+
+        RongCloudToIM= (TextView) findViewById(R.id.RongCloudToIM);
+        RongCloudToIM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, ConversationActivity.class));
+
+                /**
+                 * 启动单聊
+                 * context - 应用上下文。
+                 * targetUserId - 要与之聊天的用户 Id。
+                 * title - 聊天的标题，如果传入空值，则默认显示与之聊天的用户名称。
+                 */
+                if (RongIM.getInstance() != null) {
+                    RongIM.getInstance().startPrivateChat(MainActivity.this,"22222222","hello");
+                }
+            }
+        });
+        //luo
+        RongIMconnect();
+    }
+
+    /**
+     * luo connect RongIm
+     */
+    private void RongIMconnect() {
+
+        String Token = "1UUYEWafVVxRLJh3FQIPZrAdUWU/UP60b3vQW1NesNJAdWdGu1v1DQiaA76lgTePa9Kndj3goX1FsHEILpqhWedKOmGO8aW9"; //test11111111
+//        String Token = "v0PjdIA3EKRyApOF2mqccbAdUWU/UP60b3vQW1NesNJAdWdGu1v1DSSvW9wqc6AoD0lsot/llkW+D+wrsitRvedKOmGO8aW9"; //test22222222
+        /**
+         * IMKit SDK调用第二步
+         *
+         * 建立与服务器的连接
+         *
+         */
+        RongIM.connect(Token, new RongIMClient.ConnectCallback() {
+            @Override
+            public void onTokenIncorrect() {
+
+            }
+
+            @Override
+            public void onSuccess(String userId) {
+                Log.d("MainActivity", "——onSuccess—-"+userId);
+            }
+
+            @Override
+            public void onError(RongIMClient.ErrorCode errorCode) {
+                Log.d("MainActivity", "——onError— -"+errorCode);
+            }
+        });
+
+
     }
 
     @Override
@@ -68,8 +133,10 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+           // return true;
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }
